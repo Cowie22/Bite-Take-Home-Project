@@ -1,0 +1,38 @@
+.main-nav {
+  background: rgba(#323232, 0.7);
+  padding: 16px 0;
+  z-index: 100;
+  width: 100%;
+  position: fixed;
+  .header-logo-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    &:hover {
+      cursor: pointer;
+      a {
+        svg {
+          fill: $gold;
+          transition: 0.3s all;
+          transition-delay: 0.1s;
+        }
+      }
+    }
+    a {
+      width: 100%;
+      svg {
+        width: 100%; 
+        height: auto;
+        transition: 0.3s all;
+      }
+    }
+  }
+  .header-text-container {
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+}

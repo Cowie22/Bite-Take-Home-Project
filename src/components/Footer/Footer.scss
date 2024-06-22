@@ -1,0 +1,13 @@
+footer {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background: linear-gradient(360deg, #323232 24.82%, #323232 100%);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  .footer-end-matter{
+    font-size: 12px;
+    text-align: center;
+  }
+}

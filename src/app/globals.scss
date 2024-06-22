@@ -1,0 +1,335 @@
+// Primary colors
+$blue: #003594;
+$dark-blue: #01315f;
+$green: #00BF6F;
+$dark-green: #00704E;
+$teal: #207287;
+$cobalt: #20498B;
+$emerald: #279F79;
+$dark-emerald: #1D7E5F;
+$gold: #DAA520;
+$orange: #E95C20;
+$grey: #717C7D;
+$dark-grey: #58595B;
+$white: #FFFFFF;
+$black: #000000;
+
+// Fonts
+$sans: 'Source Sans Pro', sans-serif;
+
+// Pages
+@import "./page.module.scss";
+@import "./food-item/[id]/page.module.scss";
+
+// Components
+@import "../components/Header/Header.scss";
+@import "../components/Header/MainNav/MainNav.scss";
+@import "../components/Footer/Footer.scss";
+@import "../components/FoodList/FoodList.scss";
+@import "../components/FoodItem/FoodItem.scss";
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $sans;
+  font-size: 1rem;
+  color: $white;
+  background: linear-gradient(360deg, #323232 24.82%, #484848 100%);
+  margin: 0;
+  overflow-x: hidden;
+  &.scroll-none {
+    height: 100vh;
+    overflow: scroll;
+    max-height: 1024px;
+  }
+  &.modal-hidden {
+    overflow: hidden;
+  }
+}
+
+main {
+  padding-top: 118px;
+}
+
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+  &:visited {
+    text-decoration: none;
+    outline: none;
+  }
+}
+
+h1, .h1 {
+  font-family: $sans;
+  font-style: normal;
+  font-size: 48px;
+  line-height: 54px;
+  font-weight: 400;
+  letter-spacing: 0px;
+  color: $white;
+  margin: 0;
+  @media screen and (max-width: 991px) {
+    font-size: 34px;
+    line-height: 40px;
+  }
+}
+
+h2, .h2 {
+  font-family: $sans;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 36px;
+  color: $white;
+  margin: 0;
+  @media screen and (max-width: 991px) {
+    font-size: 28px;
+    line-height: 36px;
+  }
+}
+
+h3, .h3 {
+  font-family: $sans;
+  font-style: normal;
+  font-size: 21px;
+  line-height: 24px;
+  font-weight: 600;
+  color: $white;
+  margin: 0;
+  @media screen and (max-width: 991px) {
+    font-size: 21px;
+    line-height: 24px;
+  }
+}
+
+h4, .h4 {
+  font-family: $sans;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+  color: $white;
+  margin: 0;
+  @media screen and (max-width: 991px) {
+    font-size: 34px;
+    line-height: 40px;
+  }
+}
+
+h5, .h5 {
+  font-family: $sans;
+  font-style: normal;
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 400;
+  color: $white;
+  margin: 0;
+}
+
+h6, .h6 {
+  font-family: $sans;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  color: $white;
+  margin: 0;
+}
+
+p, .body-copy {
+  font-family: $sans;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: $white;
+  margin: 0;
+}
+
+.normal-weight {
+  font-weight: 400;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.bolder {
+  font-weight: 700;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.blue {
+  color: $blue;
+}
+
+.dark-blue {
+  color: $dark-blue;
+}
+
+.green {
+  color: $green;
+}
+
+.dark-green {
+  color: $dark-green;
+}
+
+.teal {
+  color: $teal;
+}
+
+.cobalt {
+  color: $cobalt;
+}
+
+.emerald {
+  color: $emerald;
+}
+
+.dark-emerald {
+  color: $dark-emerald;
+}
+
+.gold {
+  color: $gold;
+}
+
+.orange {
+  color: $orange;
+}
+
+.grey {
+  color: $grey;
+}
+
+.dark-grey {
+  color: $dark-grey;
+}
+
+.white {
+  color: $white;
+}
+
+.black {
+  color: $black;
+}
+
+sup {
+  font-size: 50%;
+  top: -0.79em;
+}
+
+sub {
+  vertical-align: baseline;
+  position: relative;
+  top: 0em;
+}
+
+.drive-to-container {
+  position: absolute;
+  height: 0px;
+  margin-top: -150px;
+}
+
+.cta-btn {
+  color: $white;
+  border: none;
+  padding: 10px 20px;
+  display: block;
+  min-height: fit-content;
+  text-align: center;
+  font-family: $sans;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  transition: all .5s;
+  transition-delay: .2s;
+  outline: none!important;
+  &.btn-full {
+    width: 100%;
+  }
+  &:hover {
+    cursor: pointer;
+    outline: none;
+    transition: all .5s;
+    transition-delay: .2s;
+  }
+  &:visited {
+    text-decoration: none;
+    outline: none;
+  }
+}
+
+.orange-btn {
+  background: $orange;
+  color: $white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  svg {
+    margin-left: 8px;
+    > * {
+      stroke: $white;
+      transition: all .5s;
+      transition-delay: .2s;
+    }
+  }
+  &:hover {
+    background: $white;
+    color: $orange;
+    svg {
+      > * {
+        stroke: $orange;
+        transition: all .5s;
+        transition-delay: .2s;
+      }
+    }
+  }
+  &:active {
+    background: $white;
+    color: $orange;
+  }
+}
+
+$list-colors: (
+  "blue": $blue,
+  "green": $green,
+  "teal": $teal,
+  "cobalt": $cobalt,
+  "emerald": $emerald,
+  "gold": $gold,
+  "orange": $orange,
+);
+
+@each $class, $color in $list-colors {
+  .#{$class}-ul-solid-circle {
+    list-style-type: disc;
+    padding: 0px 0px 0px 18px;
+    margin: 0;
+    li {
+      font-family: $sans;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 19px;
+      margin-bottom: 8px;
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+    li::marker {
+      color: $color;
+    }
+  }
+}
