@@ -7,7 +7,7 @@ import Link from 'next/link'
 
 import ArrowRightWhite from '../Svgs/ArrowRightWhite'
 
-const FoodDetail = (props) => {
+const FoodItem = (props) => {
   const router = useRouter()
   const { query } = router
   const id = query ? query.id : props.id
@@ -116,4 +116,4 @@ const FoodDetail = (props) => {
   )
 }
 
-export default FoodDetail
+export default FoodItem

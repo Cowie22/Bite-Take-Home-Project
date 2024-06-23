@@ -8,10 +8,7 @@ const Footer = (props) => {
         <Row>
           <Col>
             <div>
-              <p className="footer-end-matter">
-                Plot&trade; - Evoke Group 10/6 US-RMMH-2200100 v3 – Confidential and
-                Proprietary – For Internal Training Purposes Only
-              </p>
+
             </div>
           </Col>
         </Row>

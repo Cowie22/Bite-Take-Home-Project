@@ -1,6 +1,6 @@
 'use client'
 
-import React, { memo, useContext, useEffect, useState } from 'react'
+import React, { memo, useContext, useEffect } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import { AppContext } from '../contexts/state'
 

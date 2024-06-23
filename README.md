@@ -1,3 +1,5 @@
+# Bite Take Home Assignment
+
 ## Getting Started
 
 - Project uses Node version 20.14.0
@@ -19,5 +21,5 @@
 
 1. In the header: Grocery bag icon brings you home.
 2. In the header: Cart icon brings you to your cart.
-3. Clicking on any item on the home page, will bring you to that item's individual page, where you can add the items to your cart.
+3. Clicking on any item on the home page, will bring you to that item's individual page, where you can add the item to your cart.
 4. After completing orders, you can view the JSON of the saved orders from the API endpoint: [http://localhost:3001/api/orders](http://localhost:3001/api/orders).

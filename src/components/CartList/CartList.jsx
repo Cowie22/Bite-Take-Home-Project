@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Row, Col } from 'react-bootstrap'
 import axiosClient from '../../axiosClient'
 import Image from 'next/image'
@@ -169,4 +169,4 @@ const CartList = (props) => {
   )
 }
 
-export default memo(CartList)
+export default CartList

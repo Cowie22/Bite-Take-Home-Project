@@ -51,4 +51,4 @@ const Cart = (props) => {
   )
 }
 
-export default Cart
+export default memo(Cart)

@@ -1,10 +1,10 @@
 'use client'
 
-import React, { useEffect, useContext } from 'react'
+import React, { memo, useEffect, useContext } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import { AppContext } from '../../../contexts/state'
 
-import FoodDetail from '../../../components/FoodItem/FoodItem'
+import FoodItem from '../../../components/FoodItem/FoodItem'
 
 const FoodItemPage = ({ params }) => {
   const { id } = params
@@ -22,7 +22,7 @@ const FoodItemPage = ({ params }) => {
       <Container>
         <Row>
           <Col>
-            <FoodDetail id={id} />
+            <FoodItem id={id} />
           </Col>
         </Row>
       </Container>
@@ -30,4 +30,4 @@ const FoodItemPage = ({ params }) => {
   )
 }
 
-export default FoodItemPage
+export default memo(FoodItemPage)
