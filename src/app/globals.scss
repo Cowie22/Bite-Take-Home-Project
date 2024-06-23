@@ -20,6 +20,7 @@ $sans: 'Source Sans Pro', sans-serif;
 // Pages
 @import "./page.module.scss";
 @import "./food-item/[id]/page.module.scss";
+@import "./cart/page.module.scss";
 
 // Components
 @import "../components/Header/Header.scss";
@@ -27,6 +28,7 @@ $sans: 'Source Sans Pro', sans-serif;
 @import "../components/Footer/Footer.scss";
 @import "../components/FoodList/FoodList.scss";
 @import "../components/FoodItem/FoodItem.scss";
+@import "../components/CartList/CartList.scss";
 
 
 html {
@@ -51,7 +53,7 @@ body {
 }
 
 main {
-  padding-top: 118px;
+  padding-top: 128px;
 }
 
 a {
