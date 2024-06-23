@@ -71,6 +71,57 @@ async function updateCartItemQuantity(id, quantity) {
   }
 }
 
+async function completeOrder() {
+  const getCartItemsQuery = `
+    SELECT cart.id, cart.food_id, cart.quantity, food.price 
+    FROM cart 
+    JOIN food ON cart.food_id = food.id
+  `;
+  const insertOrderQuery = 'INSERT INTO orders (total) VALUES (?)';
+  const insertOrderItemsQuery = 'INSERT INTO order_items (order_id, food_id, quantity) VALUES ?';
+  const clearCartQuery = 'TRUNCATE TABLE cart';
+
+  try {
+    const [cartItems] = await pool.query(getCartItemsQuery);
+    if (cartItems.length === 0) {
+      throw new Error('Cart is empty');
+    }
+
+    const total = cartItems.reduce((sum, item) => {
+      const itemTotal = item.quantity * item.price;
+      return sum + itemTotal;
+    }, 0);
+
+    if (isNaN(total)) {
+      throw new Error('Total calculation resulted in NaN');
+    }
+
+    const [orderResult] = await pool.query(insertOrderQuery, [total]);
+    const orderId = orderResult.insertId;
+
+    const orderItems = cartItems.map(item => [orderId, item.food_id, item.quantity]);
+    await pool.query(insertOrderItemsQuery, [orderItems]);
+
+    await pool.query(clearCartQuery);
+
+    return orderId;
+  } catch (error) {
+    console.error('Error completing order:', error);
+    throw error;
+  }
+}
+
+async function getAllOrders() {
+  const queryStr = 'SELECT * FROM orders';
+  try {
+    const [rows] = await pool.query(queryStr);
+    return rows;
+  } catch (error) {
+    console.error('Error fetching food data:', error);
+    throw error;
+  }
+}
+
 module.exports = {
   getAllFood,
   getFoodById,
@@ -78,4 +129,6 @@ module.exports = {
   addToCart,
   removeFromCart,
   updateCartItemQuantity,
+  completeOrder,
+  getAllOrders,
 };

@@ -10,6 +10,8 @@ const {
   addToCart,
   removeFromCart,
   updateCartItemQuantity,
+  completeOrder,
+  getAllOrders,
 } = require('../database/index')
 
 const dev = process.env.NODE_ENV !== 'production'
@@ -77,6 +79,24 @@ nextApp.prepare().then(() => {
       res.sendStatus(204)
     } catch (error) {
       res.status(500).json({ error: 'Failed to update cart item quantity' })
+    }
+  })
+
+  app.post('/api/orders', async (req, res) => {
+    try {
+      const orderId = await completeOrder()
+      res.status(200).json({ orderId })
+    } catch (error) {
+      res.status(500).json({ error: 'Failed to complete order' })
+    }
+  })
+
+  app.get('/api/orders', async (req, res) => {
+    try {
+      const orderItems = await getAllOrders()
+      res.status(200).json(orderItems)
+    } catch (error) {
+      res.status(500).json({ error: 'Failed to fetch food items' })
     }
   })
 

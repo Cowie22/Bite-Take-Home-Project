@@ -8,6 +8,7 @@ const CartList = (props) => {
   const [cartItems, setCartItems] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
+  const [total, setTotal] = useState(0)
 
   useEffect(() => {
     const fetchCartItems = async () => {
@@ -29,6 +30,12 @@ const CartList = (props) => {
         // Resolve all promises to get complete cart items with food details
         const updatedCartItems = await Promise.all(foodDetailsPromises)
         setCartItems(updatedCartItems)
+
+        const cartTotal = updatedCartItems.reduce((acc, item) => {
+          return acc + item.quantity * item.foodDetails.price
+        }, 0)
+        setTotal(cartTotal)
+
       } catch (err) {
         setError(err.message || 'Something went wrong')
       } finally {
@@ -51,6 +58,12 @@ const CartList = (props) => {
         return item
       })
       setCartItems(updatedItems)
+
+      const cartTotal = updatedItems.reduce((acc, item) => {
+        return acc + item.quantity * item.foodDetails.price;
+      }, 0);
+      setTotal(cartTotal)
+
     } catch (err) {
       console.error('Error incrementing quantity:', err)
     }
@@ -68,6 +81,12 @@ const CartList = (props) => {
         return item
       })
       setCartItems(updatedItems)
+
+      const cartTotal = updatedItems.reduce((acc, item) => {
+        return acc + item.quantity * item.foodDetails.price;
+      }, 0);
+      setTotal(cartTotal)
+
     } catch (err) {
       console.error('Error decrementing quantity:', err)
     }
@@ -79,6 +98,12 @@ const CartList = (props) => {
       await axiosClient.delete(`/api/cart/${id}`)
       const updatedItems = cartItems.filter((item) => item.id !== id)
       setCartItems(updatedItems)
+
+      const cartTotal = updatedItems.reduce((acc, item) => {
+        return acc + item.quantity * item.foodDetails.price;
+      }, 0);
+      setTotal(cartTotal)
+      
     } catch (err) {
       console.error('Error deleting item:', err)
     }
@@ -89,6 +114,7 @@ const CartList = (props) => {
 
   return (
     <div className='cart-list-container'>
+      <h2 className='green'>Total: ${total.toFixed(2)}</h2> 
       <Row>
         {cartItems.map((cartItem) => {
           const { id, quantity } = cartItem
