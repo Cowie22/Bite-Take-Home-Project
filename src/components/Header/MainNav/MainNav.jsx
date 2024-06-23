@@ -10,14 +10,14 @@ const MainNav = (props) => {
     <section className='main-nav'>
       <Container>
         <Row>
-          <Col xs={{ span: 1, offset: 0 }}>
+          <Col lg={{ span: 1, offset: 0 }} xs={{span: 3, offset: 0}}>
             <div className='header-logo-container'>
               <Link href='/'>
                 <Logo />
               </Link>
             </div>
           </Col>
-          <Col xs={{ span: 1, offset: 8 }}>
+          <Col lg={{ span: 1, offset: 8 }} xs={{span: 3, offset: 1}}>
             <div className='header-logo-container'>
               <Link href='/cart'>
                 <CartLogo />
@@ -27,7 +27,7 @@ const MainNav = (props) => {
               </Link>
             </div>
           </Col>
-          <Col lg={{ span: 2, offset: 0 }}>
+          <Col lg={{ span: 2, offset: 0 }} xs={{span: 4, offset: 1}}>
             <div className='header-text-container'>
               <p className='gold'>
                 Bite take home project

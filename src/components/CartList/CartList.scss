@@ -1,6 +1,9 @@
 .cart-list-container {
   width: 100%;
   padding: 72px 0;
+  h2 {
+    margin-bottom: 24px;
+  }
   .cart-list-col {
     margin-bottom: 48px;
   }
@@ -28,7 +31,7 @@
       align-items: center;
       justify-content: space-between;
       height: 100%;
-      h2 {
+      h3 {
         height: 120px;
       }
       .cart-list-content-inner-container {

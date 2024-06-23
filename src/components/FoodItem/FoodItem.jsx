@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Container, Row, Col } from 'react-bootstrap'
+import { Row, Col } from 'react-bootstrap'
 import axiosClient from '../../axiosClient'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
@@ -60,18 +60,24 @@ const FoodDetail = (props) => {
   const { name, description, price, imageURL } = foodItem
 
   return (
-    <Row>
-      <Col lg={{ span: 6, offset: 3 }}>
-        <div className='food-item-inner-container'>
-          <h1>{name}</h1>
-          <p>{description}</p>
-          <h2 className='green'>Price: ${price}</h2>
-          <Image
-            src={`${imageURL}`}
-            width={400}
-            height={400}
-            alt={`img-${name}`}
-          />
+    <>
+      <Row>
+        <Col lg={{ span: 6, offset: 3 }}>
+          <div className='food-item-inner-container'>
+            <h1>{name}</h1>
+            <p>{description}</p>
+            <h2 className='green'>Price: ${price}</h2>
+            <Image
+              src={`${imageURL}`}
+              width={400}
+              height={400}
+              alt={`img-${name}`}
+            />
+          </div>
+        </Col>
+      </Row>
+      <Row>
+        <Col xl={{ span: 6, offset: 3 }} lg={{ span: 8, offset: 2 }}>
           <div className='food-item-btn-container'>
             <Link href='/cart'>
               <button
@@ -89,9 +95,7 @@ const FoodDetail = (props) => {
               >
                 -
               </button>
-              <p>
-                {quantity}
-              </p>
+              <p>{quantity}</p>
               <button
                 className='quantity-btn cta-btn orange-btn'
                 onClick={() => handleChangeQuantity(quantity + 1)}
@@ -106,9 +110,9 @@ const FoodDetail = (props) => {
               </button>
             </Link>
           </div>
-        </div>
-      </Col>
-    </Row>
+        </Col>
+      </Row>
+    </>
   )
 }
 

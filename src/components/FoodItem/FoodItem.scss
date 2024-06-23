@@ -9,20 +9,28 @@
   h2 {
     margin: 16px 0;
   }
-  .food-item-btn-container {
+}
+.food-item-btn-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding-top: 24px;
+  .quantity-control {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-    padding-top: 24px;
-    .quantity-control {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      p {
-        margin: 0 8px;
-        font-size: 20px;
+    button {
+      &:first-of-type {
+        margin-left: 8px;
       }
+      &:last-of-type {
+        margin-right: 8px;
+      }
+    }
+    p {
+      margin: 0 8px;
+      font-size: 20px;
     }
   }
 }

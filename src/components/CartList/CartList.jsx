@@ -1,8 +1,7 @@
-import React, { memo, useContext, useEffect, useState } from 'react'
-import { Container, Row, Col } from 'react-bootstrap'
+import React, { memo, useEffect, useState } from 'react'
+import { Row, Col } from 'react-bootstrap'
 import axiosClient from '../../axiosClient'
 import Image from 'next/image'
-import Link from 'next/link'
 
 const CartList = (props) => {
   const [cartItems, setCartItems] = useState([])
@@ -127,7 +126,7 @@ const CartList = (props) => {
             >
               <div className='cart-list-card-container'>
                 <div className='cart-list-content-container'>
-                  <h2 className='teal'>{name}</h2>
+                  <h3 className='h2 teal'>{name}</h3>
                   <div className='cart-list-content-inner-container'>
                     <div className='cart-list-quantity-btn-container'>
                       <button
