@@ -15,12 +15,13 @@ const FoodDetail = (props) => {
   const [foodItem, setFoodItem] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
+  const [quantity, setQuantity] = useState(1)
 
   useEffect(() => {
     const fetchFoodItem = async () => {
       try {
-        const response = await axiosClient.get(`/food/${id}`)
-        setFoodItem(response.data[0]) // Assuming your API returns a single food item object
+        const response = await axiosClient.get(`/api/food/${id}`)
+        setFoodItem(response.data[0])
       } catch (err) {
         setError(err.message || 'Something went wrong')
       } finally {
@@ -32,6 +33,25 @@ const FoodDetail = (props) => {
       fetchFoodItem()
     }
   }, [id])
+
+  const handleAddToCart = async () => {
+    try {
+      const response = await axiosClient.post(`/api/cart`, {
+        food_id: id,
+        quantity: quantity,
+      })
+      console.log('Item added to cart:', response.data)
+    } catch (err) {
+      console.error('Error adding item to cart:', err)
+    }
+  }
+
+  const handleChangeQuantity = (value) => {
+    if (value < 1) {
+      return
+    }
+    setQuantity(value)
+  }
 
   if (loading) return <div>Loading...</div>
   if (error) return <div>Error: {error}</div>
@@ -53,15 +73,32 @@ const FoodDetail = (props) => {
             alt={`img-${name}`}
           />
           <div className='food-item-btn-container'>
-            <Link href='/'>
+            <Link href='/cart'>
               <button
                 className='cta-btn orange-btn'
-                onClick={() => {}}
+                onClick={handleAddToCart}
               >
                 ADD TO CART
                 <ArrowRightWhite />
               </button>
             </Link>
+            <div className='quantity-control'>
+              <button
+                className='quantity-btn cta-btn orange-btn'
+                onClick={() => handleChangeQuantity(quantity - 1)}
+              >
+                -
+              </button>
+              <p>
+                {quantity}
+              </p>
+              <button
+                className='quantity-btn cta-btn orange-btn'
+                onClick={() => handleChangeQuantity(quantity + 1)}
+              >
+                +
+              </button>
+            </div>
             <Link href='/'>
               <button className='cta-btn orange-btn'>
                 RETURN HOME

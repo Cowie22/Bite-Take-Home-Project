@@ -12,7 +12,7 @@ const FoodList = (props) => {
   useEffect(() => {
     const fetchFoodItems = async () => {
       try {
-        const response = await axiosClient.get('/food')
+        const response = await axiosClient.get('/api/food')
         setFoodItems(response.data)
       } catch (err) {
         setError(err.message || 'Something went wrong')

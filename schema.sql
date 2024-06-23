@@ -15,6 +15,32 @@ CREATE TABLE food (
   PRIMARY KEY (id)
 );
 
+CREATE TABLE cart (
+  id INT NOT NULL AUTO_INCREMENT,
+  food_id INT NOT NULL,
+  quantity INT NOT NULL DEFAULT 1,
+  added_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  FOREIGN KEY (food_id) REFERENCES food(id)
+);
+
+CREATE TABLE orders (
+  id INT NOT NULL AUTO_INCREMENT,
+  order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  total DECIMAL(10, 2) NOT NULL,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE order_items (
+  id INT NOT NULL AUTO_INCREMENT,
+  order_id INT NOT NULL,
+  food_id INT NOT NULL,
+  quantity INT NOT NULL,
+  FOREIGN KEY (order_id) REFERENCES orders(id),
+  FOREIGN KEY (food_id) REFERENCES food(id),
+  PRIMARY KEY (id)
+);
+
 INSERT INTO food (name, description, price, imageURL) VALUES 
 ("Maine Root-Cola", "A classic cola made with fair trade sugar.", 3.95, "https://images.unsplash.com/photo-1594971475674-6a97f8fe8c2b?q=80&w=3174&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"),
 ("Super Taco Salad (New!)", "A super taco salad with black beans, corn, avocado, salsa, and tortilla strips.", 11.25, "https://images.unsplash.com/photo-1563897539633-7374c276c212?q=80&w=3146&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"),

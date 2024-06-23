@@ -19,13 +19,22 @@
           transition-delay: 0.1s;
         }
       }
+      p {
+        color: $gold;
+        transition: 0.3s all;
+        transition-delay: 0.1s;
+      }
     }
     a {
       width: 100%;
       svg {
-        width: 100%; 
+        width: 80%; 
         height: auto;
         transition: 0.3s all;
+      }
+      p {
+        transition: 0.3s all;
+        padding: 8px 0px 0 0;
       }
     }
   }
